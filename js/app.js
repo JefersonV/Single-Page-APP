@@ -5,6 +5,20 @@ const containerCallback = document.querySelector('.container--callback')
 
 const API = "https://rickandmortyapi.com/api/character"
 
+document.addEventListener('DOMContentLoaded', () => {
+	// cuerpo del callback
+	fetchDataCallback (API, (error, data) => {
+		if(error) return error;
+		// data posee todo lo que trajo la API
+		data.results.map (character => {
+			// console.log(character)
+			pintarCards(character)
+			containerCallback.appendChild(fragment)
+		})
+	});
+	
+})
+
 // callback
 const fetchDataCallback = (url_api, callback) => {
 	const datos = new XMLHttpRequest()
@@ -21,15 +35,18 @@ const fetchDataCallback = (url_api, callback) => {
 	datos.send()
 }
 
-// cuerpo del callback
-fetchDataCallback (API, (error, data) => {
-	if(error) return error;
-	// data posee todo lo que trajo la API
-	data.results.map (character => {
-		console.log(character)
-		
-	})
-});
+
+let pintarCards = (datosApi) => {
+	Object.values(datosApi)
+	templateCard.querySelector('.card-title').textContent = datosApi.name
+	templateCard.querySelector('.card-text').textContent = datosApi.status
+	const clone = templateCard.cloneNode(true)
+
+	// console.log(typeof(datosApi))
+	fragment.appendChild(clone)
+}
+
+
 /* 
 templateCard.querySelector('.card-title').textContent = 'test'
 templateCard.querySelector('.card-text').textContent = 'lorem lorem test'
