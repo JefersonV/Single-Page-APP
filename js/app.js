@@ -46,6 +46,3 @@ let pintarCards = (datosApi) => {
 	// console.log(typeof(datosApi))
 	fragment.appendChild(clone)
 }
-
-
-
