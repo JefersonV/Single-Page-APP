@@ -1,3 +1,7 @@
-.container--callback {
+.container-fluid {
     overflow-x: scroll;
+}
+
+.container--callback {
+    width: 430%;
 }
