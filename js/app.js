@@ -40,19 +40,12 @@ let pintarCards = (datosApi) => {
 	Object.values(datosApi)
 	templateCard.querySelector('.card-title').textContent = datosApi.name
 	templateCard.querySelector('.card-text').textContent = datosApi.status
+	templateCard.querySelector('.card-img-top').setAttribute('src', datosApi.image)
 	const clone = templateCard.cloneNode(true)
-
+	// console.log(datosApi.image)
 	// console.log(typeof(datosApi))
 	fragment.appendChild(clone)
 }
 
-
-/* 
-templateCard.querySelector('.card-title').textContent = 'test'
-templateCard.querySelector('.card-text').textContent = 'lorem lorem test'
-
-fragment.appendChild(templateCard)
-
-containerCallback.appendChild(fragment) */
 
 
